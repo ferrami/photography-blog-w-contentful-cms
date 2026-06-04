@@ -8,7 +8,16 @@ function App() {
         content_type: "photoPost",
       });
 
+      const posts = response.items.map((item) => ({
+        id: item.sys.id,
+        title: item.fields.title,
+        slug: item.fields.slug,
+        caption: item.fields.caption,
+        altText: item.fields.altText,
+      }));
+
       console.log(response.items);
+      console.log(posts);
     }
 
     fetchPosts();
